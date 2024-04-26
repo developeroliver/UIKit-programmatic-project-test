@@ -11,8 +11,10 @@ import SnapKit
 class ViewController: UIViewController {
     
     // MARK: - Properties
-    var score = 1884
-    var round = 999
+    var currentValue = 0
+    var targetValue = 0
+    var score = 0
+    var round = 0
     
     // MARK: - UI
     lazy var titleLabel: UILabel = {
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
     
     lazy var goalLabel: UILabel = {
         let label = UILabel()
-        label.text = "25"
+        label.text = "100"
         return label
     }()
     
@@ -37,7 +39,7 @@ class ViewController: UIViewController {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 100
-        slider.value = 50
+        slider.value = 60
         return slider
     }()
     
@@ -65,10 +67,11 @@ class ViewController: UIViewController {
         return button
     }()
     
-    lazy var startLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Start Over"
-        return label
+    lazy var startButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Start Over", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        return button
     }()
     
     lazy var scoreLabel: UILabel = {
@@ -93,13 +96,13 @@ class ViewController: UIViewController {
     
     private lazy var hStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            startLabel,
+            startButton,
             scoreLabel,
             roundLabel,
             infoImageView
         ])
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.spacing = 0
         return stackView
     }()
@@ -107,26 +110,65 @@ class ViewController: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        startNewRound()
         setup()
         layout()
     }
 }
 
-// MARK: - @objc Functions
+// MARK: - @objc & Functions
 extension ViewController {
     
     @objc func showAlert() {
-        let alert = UIAlertController(title: "Fonctionnalité non disponible", message: "Cette fonctionnalité n'est pas encore disponible.", preferredStyle: .alert)
+        let difference = abs(targetValue - currentValue)
+        let points = 100 - difference
+        score += points
         
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let message = "You scored \(points) points"
         
-        alert.addAction(okAction)
+        let alert = UIAlertController(
+            title: "Hello world",
+            message: message,
+            preferredStyle: .alert)
+        
+        let action = UIAlertAction(
+            title: "OK",
+            style: .default) {_ in 
+                self.startNewRound()
+            }
+        
+        alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
     @objc func sliderValueChanged(_ sender: UISlider) {
-           print("Nouvelle valeur du slider : \(sender.value)")
-       }
+        currentValue = lround(Double(slider.value))
+    }
+    
+    @objc func restartGame() {
+        score = 0
+        round = 0
+        startNewRound()
+        let transition = CATransition()
+        transition.type = CATransitionType.fade
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        view.layer.add(transition, forKey: nil)
+    }
+    
+    func startNewRound() {
+        round += 1
+        targetValue = Int.random(in: 1...100)
+        currentValue = 50
+        slider.value = Float(currentValue)
+        updateLabels()
+    }
+    
+    func updateLabels() {
+        goalLabel.text = "\(targetValue)"
+        scoreLabel.text = "Score: \(score)"
+        roundLabel.text = "Round: \(round)"
+    }
 }
 
 // MARK: - Helpers
@@ -137,13 +179,12 @@ extension ViewController {
         
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
         showAlertButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-        
-        scoreLabel.text = "Score: \(score)"
-        roundLabel.text = "Round: \(round)"
+        startButton.addTarget(self, action: #selector(restartGame), for: .touchUpInside)
     }
     
     private func layout() {
         view.addSubview(titleLabel)
+        view.addSubview(goalLabel)
         view.addSubview(sliderStackView)
         view.addSubview(showAlertButton)
         view.addSubview(infoImageView)
@@ -152,6 +193,11 @@ extension ViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
+        }
+        
+        goalLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
         }
         
         sliderStackView.snp.makeConstraints { make in
