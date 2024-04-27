@@ -11,6 +11,8 @@
 		37C23C242BDD44DD0023884E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C232BDD44DD0023884E /* SceneDelegate.swift */; };
 		37C23C262BDD44DD0023884E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C252BDD44DD0023884E /* ViewController.swift */; };
 		37C23C2B2BDD44DE0023884E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C23C2A2BDD44DE0023884E /* Assets.xcassets */; };
+		37C23C3A2BDD48A40023884E /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C392BDD48A40023884E /* Loan.swift */; };
+		37C23C3D2BDD4B060023884E /* LoanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C3C2BDD4B060023884E /* LoanManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		37C23C252BDD44DD0023884E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37C23C2A2BDD44DE0023884E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C23C2F2BDD44DE0023884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37C23C392BDD48A40023884E /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		37C23C3C2BDD4B060023884E /* LoanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 				37C23C2F2BDD44DE0023884E /* Info.plist */,
 				37C23C352BDD45170023884E /* App */,
 				37C23C382BDD45290023884E /* Controller */,
+				37C23C3B2BDD4AF00023884E /* Manager */,
 				37C23C362BDD45200023884E /* Model */,
 				37C23C372BDD45250023884E /* View */,
 			);
@@ -74,6 +79,7 @@
 		37C23C362BDD45200023884E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				37C23C392BDD48A40023884E /* Loan.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +97,14 @@
 				37C23C252BDD44DD0023884E /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		37C23C3B2BDD4AF00023884E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				37C23C3C2BDD4B060023884E /* LoanManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				37C23C262BDD44DD0023884E /* ViewController.swift in Sources */,
+				37C23C3D2BDD4B060023884E /* LoanManager.swift in Sources */,
 				37C23C222BDD44DD0023884E /* AppDelegate.swift in Sources */,
 				37C23C242BDD44DD0023884E /* SceneDelegate.swift in Sources */,
+				37C23C3A2BDD48A40023884E /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
