@@ -13,6 +13,8 @@ Cette application iOS est conçue pour illustrer des concepts avancés de dével
 
 - **UINavigationController pour la Navigation**: La navigation au sein de l'application est facilitée grâce à l'utilisation de UINavigationController, offrant une hiérarchie de navigation claire et intuitive pour les utilisateurs.
 
+- **UITableViewDiffableDataSource**: Est une classe introduite dans iOS 13 pour simplifier la gestion des données dans une UITableView en utilisant le modèle de données diffusables. Cette classe automatise la mise à jour de la table view en calculant les différences entre les données actuelles et les nouvelles données, offrant ainsi une expérience de développement fluide et réactive. Son utilisation simplifie la logique de mise à jour de l'interface utilisateur et améliore les performances des applications avec des interfaces complexes ou des ensembles de données volumineux.
+
 ## Installation
 1. Cloner ce dépôt sur votre machine locale.
 2. Assurez-vous que vous avez Xcode installé sur votre système.
