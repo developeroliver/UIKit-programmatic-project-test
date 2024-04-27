@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		37C23C222BDD44DD0023884E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C212BDD44DD0023884E /* AppDelegate.swift */; };
 		37C23C242BDD44DD0023884E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C232BDD44DD0023884E /* SceneDelegate.swift */; };
-		37C23C262BDD44DD0023884E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C252BDD44DD0023884E /* ViewController.swift */; };
+		37C23C262BDD44DD0023884E /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C252BDD44DD0023884E /* LoanViewController.swift */; };
 		37C23C2B2BDD44DE0023884E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C23C2A2BDD44DE0023884E /* Assets.xcassets */; };
 		37C23C3A2BDD48A40023884E /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C392BDD48A40023884E /* Loan.swift */; };
 		37C23C3D2BDD4B060023884E /* LoanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C3C2BDD4B060023884E /* LoanManager.swift */; };
+		37C23C3F2BDD5A670023884E /* LoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C23C3E2BDD5A670023884E /* LoanTableViewCell.swift */; };
+		37C23C422BDD5A900023884E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37C23C412BDD5A900023884E /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		37C23C1E2BDD44DD0023884E /* KivaLoan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KivaLoan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C23C212BDD44DD0023884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37C23C232BDD44DD0023884E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37C23C252BDD44DD0023884E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37C23C252BDD44DD0023884E /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
 		37C23C2A2BDD44DE0023884E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C23C2F2BDD44DE0023884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37C23C392BDD48A40023884E /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		37C23C3C2BDD4B060023884E /* LoanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanManager.swift; sourceTree = "<group>"; };
+		37C23C3E2BDD5A670023884E /* LoanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C23C422BDD5A900023884E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 		37C23C372BDD45250023884E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				37C23C3E2BDD5A670023884E /* LoanTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,7 +99,7 @@
 		37C23C382BDD45290023884E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				37C23C252BDD44DD0023884E /* ViewController.swift */,
+				37C23C252BDD44DD0023884E /* LoanViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +128,9 @@
 			dependencies = (
 			);
 			name = KivaLoan;
+			packageProductDependencies = (
+				37C23C412BDD5A900023884E /* SnapKit */,
+			);
 			productName = KivaLoan;
 			productReference = 37C23C1E2BDD44DD0023884E /* KivaLoan.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 37C23C152BDD44DD0023884E;
+			packageReferences = (
+				37C23C402BDD5A900023884E /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 37C23C1F2BDD44DD0023884E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,7 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37C23C262BDD44DD0023884E /* ViewController.swift in Sources */,
+				37C23C262BDD44DD0023884E /* LoanViewController.swift in Sources */,
+				37C23C3F2BDD5A670023884E /* LoanTableViewCell.swift in Sources */,
 				37C23C3D2BDD4B060023884E /* LoanManager.swift in Sources */,
 				37C23C222BDD44DD0023884E /* AppDelegate.swift in Sources */,
 				37C23C242BDD44DD0023884E /* SceneDelegate.swift in Sources */,
@@ -382,6 +394,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37C23C402BDD5A900023884E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37C23C412BDD5A900023884E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C23C402BDD5A900023884E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 37C23C162BDD44DD0023884E /* Project object */;
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class LoanViewController: UITableViewController {
     
     // MARK: enum
     enum Section {
@@ -29,7 +29,7 @@ class ViewController: UITableViewController {
 }
 
 // MARK: - Helpers
-extension ViewController {
+extension LoanViewController {
     private func fetchLoans() {
         LoanManager.shared.getLatestLoans { [weak self] loans in
             guard let self = self, let loans = loans else { return }
@@ -41,29 +41,29 @@ extension ViewController {
     }
     
     private func style() {
-        title = ""
-        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Latest Loans"
         
         tableView.estimatedRowHeight = 92.0
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(LoanTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Loan> {
         
         let dataSource = UITableViewDiffableDataSource<Section, Loan>(
             tableView: tableView,
-            cellProvider: { [self]  tableView, indexPath, loan in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                let loan = loans[indexPath.row]
-                cell.textLabel?.text = loan.name
+            cellProvider: { tableView, indexPath, loan in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LoanTableViewCell
+                cell.titleLabel.text = loan.name
+                cell.countryLabel.text = loan.country
+                cell.useLabel.text = loan.use
+                cell.amountLabel.text = "$\(loan.amount)"
                 return cell
             }
         )
         
         return dataSource
     }
-    
     
     func updateSnapshot(animatingChange: Bool = false) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Loan>()
