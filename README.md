@@ -29,7 +29,7 @@ Ce projet a été développé par Olivier Geiger as codewitholiver.
 Ce projet est sous licence MIT. Veuillez consulter le fichier LICENSE.md pour plus de détails.
 
 ## Remerciements
-Je tiens à remercier Quentin Cornu, Sean Allen, Nick Sarno, Stephan Dowles, Chris Ching pour leurs cours qui m'ont permis d'apprendre et de monter en compétences en Swift et en utilisant les frameworks UIKit en 100% programmatique et SwiftUI
+Je tiens à remercier Quentin Cornu, Sean Allen, Nick Sarno, Stephan Dowles, Jonathan Rasmusson, Matthieu Passerel, Chris Ching et Angela Yu pour leurs cours qui m'ont permis d'apprendre et de monter en compétences en Swift et en utilisant les frameworks UIKit en 100% programmatique et SwiftUI
 
 ## Projets divers
 
